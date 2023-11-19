@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -35,23 +36,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role.Companion.Button
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
 
 class MainActivity : ComponentActivity() {
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
+
+
+
+
             MyApplicationTheme {
 
                 MyApp(modifier = Modifier.fillMaxSize())
-
-
-
             }
         }
     }
@@ -126,6 +126,27 @@ fun rootDraw() {
     changeText(name)
     drawName(name)
 
+    Screen1()
+}
+
+@Composable
+fun Screen1(onClickButton: ()->Unit = {}) {
+    Column {
+        Text(text = "Screen 1")
+        Button(onClick = onClickButton) {
+            Text(text = "Go to Screen 2")
+        }
+    }
+}
+
+@Composable
+fun Screen2(onClickButton: ()->Unit = {}) {
+    Column {
+        Text(text = "Screen 2")
+        Button(onClick = onClickButton) {
+            Text(text = "Back to Screen 1")
+        }
+    }
 }
 
 @Composable
@@ -180,7 +201,23 @@ fun drawButton() {
         ) {
             Text(text = "Count up!")
         }
+        Button(
+            onClick = {
+
+
+
+
+            }
+        ) {
+            Text(text = "遷移です!")
+        }
     }
+}
+
+private fun onClickTransition() {
+
+
+
 }
 
 @Composable
